@@ -62,14 +62,9 @@ def main():
     x_train = []
     model = load_model(r"C:\Users\Jai K\CS Stuff\Python\ISR Project\100model.h5")
     captureSplit.capture_split()
-    captureSplit.crop_user()
-    p = Progressbar(win,orient=HORIZONTAL,length=200,mode="determinate",takefocus=True,maximum=100)
-    p.pack()            
-    for i in range(100):                
-        p.step()            
-        win.update()
+    captureSplit.crop_user()           
     cropped_frames = os.listdir(starting_path)
-    print(cropped_frames)
+    #print(cropped_frames)
     sequence = []
     max_seq_length = 10
 
@@ -82,14 +77,14 @@ def main():
         frame = frame.astype(np.uint8)
         sequence.append(frame)
 
-    print("Sequence Shape: ",len(sequence),len(sequence[0]))
+    #print("Sequence Shape: ",len(sequence),len(sequence[0]))
     pad_array = [np.zeros((MAX_WIDTH, MAX_HEIGHT))]
     sequence.extend(pad_array * (max_seq_length - len(sequence)))
     sequence = np.array(sequence)
     if len(sequence)>10:
         sequence = sequence[:10]
-        print("Length of shortened sequence: ",len(sequence))
-        print("Shape of Shortened Sequence: ",sequence.shape) 
+        #print("Length of shortened sequence: ",len(sequence))
+        #print("Shape of Shortened Sequence: ",sequence.shape) 
     x_train.append(sequence)
     x_train = np.array(x_train)
     ypred = model.predict(x_train)
