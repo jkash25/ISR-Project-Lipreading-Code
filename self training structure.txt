@@ -1,0 +1,45 @@
+self training
+--words (data type)
+----01 (word ex: begin)
+--------01 (instance of word begin)
+------------01 (first sequence of word begin)
+---------------image
+---------------image
+--------02
+--------03
+--------04
+--------05
+--------06
+--------07
+--------08
+--------09
+--------10
+----02
+----03
+----04
+----05
+----06
+----07
+----08
+----09
+----10
+
+
+--phrases
+
+
+TODO:
+
+for loop that for each word, records 10 iterations (videos) of the words, splits the video into frames,
+and then adds the frames to the training data folders
+
+It should also print out which word to say and the number of iterations done for each word.
+
+1. record video
+2. split into frames
+3. take frames and crop lips
+4. add final result to self_training
+
+
+once the video is taken, the frames are in tempframes. 
+go through tempframes, crop each image, and add that to self_training
