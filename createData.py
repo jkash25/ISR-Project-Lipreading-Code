@@ -158,7 +158,7 @@ def capture_split_for_self_training(word, iteration):
         print("Directory Doesn't Exist: Creating it...")
         os.makedirs(newpath)
 
-    video = cv2.VideoCapture("C:\\Users\\Jai K\\CS Stuff\\video.avi")
+    video = cv2.VideoCapture("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\code\\video.avi")
     frameNr = 0
     failed = 0
     while True:
@@ -242,43 +242,20 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
 
         for instance_index, instance in enumerate(instances):
             shutil.rmtree(
-                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"
-                + person
-                + "\\words"
-                + "\\"
-                + folder_number
-                + "\\"
-                + instance
-            )
+                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
             os.mkdir(
-                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"
-                + person
-                + "\\words"
-                + "\\"
-                + folder_number
-                + "\\"
-                + instance
+                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance
             )
             # print('Instance index: ',instance_index)
             print("Instance: " + instance)
             # iteration = instance_index
             capture_split_for_self_training(word, instance)
-            for frame in os.listdir(
-                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"
-            ):
+            for frame in os.listdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"):
                 # print(tempStarting+frame)
                 img = general_crop_for_self_training(tempStarting + frame)
                 cv2.imwrite(
-                    "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"
-                    + person
-                    + "\\words\\"
-                    + folder_number
-                    + "\\"
-                    + instance
-                    + "\\"
-                    + frame,
-                    img,
+                    "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words\\"+ folder_number+ "\\"+ instance+ "\\"+ frame, img,
                 )
 
 
-make("Jai01", "Begin")
+make("Jai01", "Choose")
