@@ -258,4 +258,6 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
                 )
 
 
-make("Jai01", "Choose")
+make("Jai01", "Navigation")
+
+#REPLACE NAVIGATION WITH "NEXT"
