@@ -223,9 +223,6 @@ def make_dirs():
                 for instance in instances:
                     os.mkdir(starting+person+"\\"+data_type+"\\"+num+"\\"+instance)
                     
-
-#Jai02 words 01 01
-
 def make(person, word_to_create):  # pass in begin, navigation, or whichever word.
 
     folder_number = words.index(word_to_create)
@@ -236,22 +233,17 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
         folder_number = "0" + str(folder_number + 1)
 
     for instance_index, instance in enumerate(instances):
-        shutil.rmtree(
-            "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
-        os.mkdir(
-            "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance
-        )
-        # print('Instance index: ',instance_index)
+        shutil.rmtree("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
+        os.mkdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
         print("Instance: " + instance)
-        # iteration = instance_index
         capture_split_for_self_training(word, instance)
         for frame in os.listdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"):
-            # print(tempStarting+frame)
+    
             img = general_crop_for_self_training(tempStarting + frame)
             cv2.imwrite(
                 "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words\\"+ folder_number+ "\\"+ instance+ "\\"+ frame, img,
             )
 
 
-#make("Jai01", "Web")
+make("Jai02", "Begin")
 #make_dirs()
