@@ -49,7 +49,7 @@ words = [
 ]
 words_di = {i: words[i] for i in range(len(words))}
 people = [
-    #"Jai01",
+    "Jai01",
     "Jai02",
     "Jai03",
     "Jai04",
