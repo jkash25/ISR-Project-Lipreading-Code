@@ -49,7 +49,7 @@ words = [
 ]
 words_di = {i: words[i] for i in range(len(words))}
 people = [
-    "Jai01",
+    #"Jai01",
     "Jai02",
     "Jai03",
     "Jai04",
@@ -217,19 +217,14 @@ def general_crop_for_self_training(path):
 def make_dirs():
     for person in people:
         for data_type in data_types:
+            os.mkdir(starting+person+"\\"+data_type)
             for num in folder_nums:
+                os.mkdir(starting+person+"\\"+data_type+"\\"+num)
                 for instance in instances:
-                    os.mkdir(
-                        starting
-                        + person
-                        + "\\"
-                        + data_type
-                        + "\\"
-                        + num
-                        + "\\"
-                        + instance
-                    )
+                    os.mkdir(starting+person+"\\"+data_type+"\\"+num+"\\"+instance)
+                    
 
+#Jai02 words 01 01
 
 def make(person, word_to_create):  # pass in begin, navigation, or whichever word.
 
@@ -258,4 +253,5 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
             )
 
 
-make("Jai01", "Web")
+#make("Jai01", "Web")
+#make_dirs()
