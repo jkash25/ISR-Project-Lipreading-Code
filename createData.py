@@ -236,28 +236,26 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
     folder_number = words.index(word_to_create)
     word = words[folder_number]
     if folder_number == 9:
-        folder_number = 10
+        folder_number = "10"
     else:
         folder_number = "0" + str(folder_number + 1)
 
-        for instance_index, instance in enumerate(instances):
-            shutil.rmtree(
-                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
-            os.mkdir(
-                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance
+    for instance_index, instance in enumerate(instances):
+        shutil.rmtree(
+            "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
+        os.mkdir(
+            "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance
+        )
+        # print('Instance index: ',instance_index)
+        print("Instance: " + instance)
+        # iteration = instance_index
+        capture_split_for_self_training(word, instance)
+        for frame in os.listdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"):
+            # print(tempStarting+frame)
+            img = general_crop_for_self_training(tempStarting + frame)
+            cv2.imwrite(
+                "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words\\"+ folder_number+ "\\"+ instance+ "\\"+ frame, img,
             )
-            # print('Instance index: ',instance_index)
-            print("Instance: " + instance)
-            # iteration = instance_index
-            capture_split_for_self_training(word, instance)
-            for frame in os.listdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"):
-                # print(tempStarting+frame)
-                img = general_crop_for_self_training(tempStarting + frame)
-                cv2.imwrite(
-                    "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words\\"+ folder_number+ "\\"+ instance+ "\\"+ frame, img,
-                )
 
 
-make("Jai01", "Navigation")
-
-#REPLACE NAVIGATION WITH "NEXT"
+make("Jai01", "Web")
