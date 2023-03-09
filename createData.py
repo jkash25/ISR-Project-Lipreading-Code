@@ -34,7 +34,6 @@ from keras.layers import BatchNormalization
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 import matplotlib.pyplot as plt
 
-
 words = [
     "Begin",
     "Choose",
@@ -47,6 +46,7 @@ words = [
     "Hello",
     "Web",
 ]
+
 words_di = {i: words[i] for i in range(len(words))}
 people = [
     "Jai01",
@@ -60,27 +60,16 @@ people = [
     "Jai09",
     "Jai10",
 ]
+
 data_types = ["words"]
 folder_nums = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
 instances = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
 starting = "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"
 tempStarting = "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes\\"
 winname = "Recording Started"
-words = [
-    "Begin",
-    "Choose",
-    "Connection",
-    "Navigation",
-    "Next",
-    "Previous",
-    "Start",
-    "Stop",
-    "Hello",
-    "Web",
-]
+
 
 words_di = {i: words[i] for i in range(len(words))}
-
 
 def capture_split_for_self_training(word, iteration):
     blank_image2 = 255 * np.ones(shape=[200, 600, 3], dtype=np.uint8)
@@ -133,7 +122,7 @@ def capture_split_for_self_training(word, iteration):
 
                 # print("Space here")
                 if recording_flag == False:
-                    output = cv2.VideoWriter("video.avi", codec, 30, (640, 480))
+                    output = cv2.VideoWriter("C:\\Users\Jai K\\CS Stuff\\Python\\ISR Project\\code\\video.avi", codec, 30, (640, 480))
                     recording_flag = True
                 else:
                     recording_flag = False
@@ -159,6 +148,7 @@ def capture_split_for_self_training(word, iteration):
         os.makedirs(newpath)
 
     video = cv2.VideoCapture("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\code\\video.avi")
+    
     frameNr = 0
     failed = 0
     while True:
@@ -178,7 +168,6 @@ def capture_split_for_self_training(word, iteration):
         frameNr += 1
 
     video.release()
-
 
 def general_crop_for_self_training(path):
     hog_face_detector = dlib.get_frontal_face_detector()
@@ -213,7 +202,6 @@ def general_crop_for_self_training(path):
     resized_cropped = cv2.resize(copy, dim, interpolation=cv2.INTER_AREA)
     return resized_cropped
 
-
 def make_dirs():
     for person in people:
         for data_type in data_types:
@@ -224,7 +212,6 @@ def make_dirs():
                     os.mkdir(starting+person+"\\"+data_type+"\\"+num+"\\"+instance)
                     
 def make(person, word_to_create):  # pass in begin, navigation, or whichever word.
-
     folder_number = words.index(word_to_create)
     word = words[folder_number]
     if folder_number == 9:
@@ -235,6 +222,7 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
     for instance_index, instance in enumerate(instances):
         shutil.rmtree("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\"+ person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
         os.mkdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\self_training\\" + person+ "\\words"+ "\\"+ folder_number+ "\\"+ instance)
+        print("Word: "+word_to_create)
         print("Instance: " + instance)
         capture_split_for_self_training(word, instance)
         for frame in os.listdir("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\tempframes"):
@@ -245,5 +233,5 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
             )
 
 
-make("Jai02", "Begin")
+make("Jai05", "Web")
 #make_dirs()
