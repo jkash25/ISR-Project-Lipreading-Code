@@ -77,7 +77,8 @@ def capture_split():
                 for n in range(0, 47):
                     x = face_landmarks.part(n).x
                     y = face_landmarks.part(n).y
-                    cv2.circle(frame, (x, y), 1, (0, 255, 255), 1)
+                    #cv2.circle(frame, (x, y), 1, (0, 255, 255), 1)
+                    cv2.circle(frame,(x,y),1,(0,255,0),thickness=1)
             cv2.imshow("FRAME", frame)
             key = cv2.waitKey(1)
             if key % 256 == 27:
