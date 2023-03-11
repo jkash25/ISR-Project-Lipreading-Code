@@ -1,5 +1,4 @@
 import LR
-import random
 from tkinter import *
 from PIL import ImageTk, Image
 import click
@@ -66,7 +65,6 @@ def main():
     captureSplit.capture_split()
     captureSplit.crop_user()           
     cropped_frames = os.listdir(starting_path)
-    #print(cropped_frames)
     sequence = []
     max_seq_length = 10
 
@@ -78,29 +76,19 @@ def main():
         
         frame = frame.astype(np.uint8)
         sequence.append(frame)
-
-    #print("Sequence Shape: ",len(sequence),len(sequence[0]))
     pad_array = [np.zeros((MAX_WIDTH, MAX_HEIGHT))]
     sequence.extend(pad_array * (max_seq_length - len(sequence)))
     sequence = np.array(sequence)
-
     if len(sequence)>10:
-        sequence = sequence[:10]
-        #print("Length of shortened sequence: ",len(sequence))
-        #print("Shape of Shortened Sequence: ",sequence.shape) 
+        sequence = sequence[:10] 
     x_train.append(sequence)
     x_train = np.array(x_train)
     ypred = model.predict(x_train)
     ypred = np.array(ypred)
     word_pred = words[int(np.argmax(ypred, axis=1))]
-    i = random.random()
-    if i>0.32:
-        print(i)
-        word_pred = input_word
-    print(i)
     predLabel.configure(text="Word Predicted: "+word_pred)
     predLabel.pack(pady=30)
-    b2.configure(text="Done!")
+    b2.configure(text="Click To Record and Try Again")
 
 def helper():
     for i in range(5):
