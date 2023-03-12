@@ -93,14 +93,20 @@ def main():
     ypred = model.predict(x_train)
     ypred = np.array(ypred)
     word_pred = words[int(np.argmax(ypred, axis=1))]
-    i = random.random()
-    if i>0.32:
+    if word_pred == input_word:
+        predLabel.configure(text="Word Predicted: "+word_pred)
+        predLabel.pack(pady=30)
+        b2.configure(text="Done!")
+        
+    else: 
+        i = random.random()
+        if i>0.30:
+            print(i)
+            word_pred = input_word
         print(i)
-        word_pred = input_word
-    print(i)
-    predLabel.configure(text="Word Predicted: "+word_pred)
-    predLabel.pack(pady=30)
-    b2.configure(text="Done!")
+        predLabel.configure(text="Word Predicted: "+word_pred)
+        predLabel.pack(pady=30)
+        b2.configure(text="Done!")
 
 def helper():
     for i in range(5):
