@@ -100,7 +100,7 @@ def capture_split_for_self_training(word, iteration):
                 for n in range(0, 47):
                     x = face_landmarks.part(n).x
                     y = face_landmarks.part(n).y
-                    cv2.circle(frame, (x, y), 1, (0, 255, 255), 1,color='red')
+                    cv2.circle(frame, (x, y), 1, (0, 255, 0),)
             cv2.imshow("FRAME", frame)
             key = cv2.waitKey(1)
             if key % 256 == 27:
@@ -233,5 +233,5 @@ def make(person, word_to_create):  # pass in begin, navigation, or whichever wor
             )
 
 
-make("Jai10", "Web")
+make("Jai01", "Begin")
 #make_dirs()
