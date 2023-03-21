@@ -42,18 +42,7 @@ win  = Tk()
 
 win.title("First screen")
 
-words = [
-    "Begin",
-    "Choose",
-    "Connection",
-    "Navigation",
-    "Next",
-    "Previous",
-    "Start",
-    "Stop",
-    "Hello",
-    "Web",
-]
+words = ["Begin","Choose","Connection","Navigation","Next","Previous","Start","Stop","Hello","Web",]
 words_di = {i: words[i] for i in range(len(words))}
 starting_path = "C:\\Users\\Jai K\\CS Stuff\\cropped_frames"
 word_pred = ""

@@ -9,8 +9,6 @@ import pandas as pd
 import os
 import imutils
 import dlib
-
-# from dlib import frontal_face_detector
 import cv2
 import imageio
 from PIL import Image
@@ -34,32 +32,10 @@ from keras.layers import BatchNormalization
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 import matplotlib.pyplot as plt
 
-words = [
-    "Begin",
-    "Choose",
-    "Connection",
-    "Navigation",
-    "Next",
-    "Previous",
-    "Start",
-    "Stop",
-    "Hello",
-    "Web",
-]
+words = ["Begin","Choose","Connection","Navigation","Next","Previous","Start","Stop","Hello","Web",]
 
 words_di = {i: words[i] for i in range(len(words))}
-people = [
-    "Jai01",
-    "Jai02",
-    "Jai03",
-    "Jai04",
-    "Jai05",
-    "Jai06",
-    "Jai07",
-    "Jai08",
-    "Jai09",
-    "Jai10",
-]
+people = ["Jai01","Jai02","Jai03","Jai04","Jai05","Jai06", "Jai07","Jai08","Jai09","Jai10",]
 
 data_types = ["words"]
 folder_nums = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]

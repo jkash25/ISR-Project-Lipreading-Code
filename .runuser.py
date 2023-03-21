@@ -41,18 +41,7 @@ win  = Tk()
 
 win.title("First screen")
 
-words = [
-    "Begin",
-    "Choose",
-    "Connection",
-    "Navigation",
-    "Next",
-    "Previous",
-    "Start",
-    "Stop",
-    "Hello",
-    "Web",
-]
+words = ["Begin","Choose","Connection","Navigation","Next","Previous","Start","Stop","Hello","Web",]
 words_di = {i: words[i] for i in range(len(words))}
 starting_path = "C:\\Users\\Jai K\\CS Stuff\\cropped_frames"
 word_pred = ""
@@ -69,11 +58,8 @@ def main():
     max_seq_length = 10
 
     for frame in cropped_frames:
-
-        
         frame = cv2.imread(starting_path+"\\"+frame)
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        
         frame = frame.astype(np.uint8)
         sequence.append(frame)
     pad_array = [np.zeros((MAX_WIDTH, MAX_HEIGHT))]
@@ -114,8 +100,6 @@ def show():
     flashing.pack()
     helper()
     b2.pack()
-
-
 
 
 
