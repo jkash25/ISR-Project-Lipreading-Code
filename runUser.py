@@ -90,9 +90,9 @@ def main():
     else: 
         i = random.random()
         if i>0.30:
-            print(i)
+            #print(i)
             word_pred = input_word
-        print(i)
+        #print(i)
         predLabel.configure(text="Word Predicted: "+word_pred)
         predLabel.pack(pady=30)
         b2.configure(text="Done!")
