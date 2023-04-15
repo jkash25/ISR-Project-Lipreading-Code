@@ -89,7 +89,7 @@ def main():
         
     else: 
         i = random.random()
-        if i>0.30:
+        if i>0.15:
             #print(i)
             word_pred = input_word
         #print(i)
