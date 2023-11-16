@@ -36,6 +36,7 @@ from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 import matplotlib.pyplot as plt
 import tkinter
 from tkinter.ttk import Progressbar
+
 warnings.filterwarnings("ignore")
 input_word = ""
 win  = Tk()
