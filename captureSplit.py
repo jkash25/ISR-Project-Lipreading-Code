@@ -41,25 +41,23 @@ warnings.filterwarnings("ignore")
 winname = 'Recording Started'
 blank_image2 = 255 * np.ones(shape=[50, 330, 3], dtype=np.uint8)
 hog_face_detector = dlib.get_frontal_face_detector()
-dlib_facelandmark = dlib.shape_predictor("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat")
+dlib_facelandmark = dlib.shape_predictor("C:\\Users\\Jai K\\CS Stuff\\2022-2023 CS\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat")
 
 def capture_split():
     fpsLimit = 0.1
 
-    directions = "C:\\Users\\Jai K\\CS Stuff\\directions.jpg"
-    pic = cv2.imread(directions)
-    cv2.imshow("Directions", pic)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # directions = "C:\\Users\\Jai K\\CS Stuff\\directions.jpg"
+    # pic = cv2.imread(directions)
+    # cv2.imshow("Directions", pic)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
     capture = cv2.VideoCapture(0)
     codec = cv2.VideoWriter_fourcc(*"XVID")
 
     recording_flag = False
     hog_face_detector = dlib.get_frontal_face_detector()
 
-    dlib_facelandmark = dlib.shape_predictor(
-        "C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat"
-    )
+    dlib_facelandmark = dlib.shape_predictor("C:\\Users\\Jai K\\CS Stuff\\2022-2023 CS\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat")
     startTime = time.time()
 
     while True:
@@ -126,6 +124,7 @@ def capture_split():
             cv2.imwrite(
                 f"C:\\Users\\Jai K\\CS Stuff\\frames\\frame{frameNr}.jpg", frame
             )
+            print("Wrote frame to directory")
         else:
             print("Failed to write frame")
             break
@@ -137,7 +136,7 @@ def capture_split():
 def general_crop(path_to_image):
     #print("GENERAL CROP REACHED")
     hog_face_detector = dlib.get_frontal_face_detector()
-    dlib_facelandmark = dlib.shape_predictor("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat")
+    dlib_facelandmark = dlib.shape_predictor("C:\\Users\\Jai K\\CS Stuff\\2022-2023 CS\\Python\\ISR Project\\shape_predictor_68_face_landmarks.dat")
     frame = cv2.imread(path_to_image)
     x_arr = []
     y_arr = []
@@ -194,7 +193,7 @@ def crop_user():
         #print("Image added!")
         frameNR += 1
     
-    return "C:\\Users\\Jai K\\CS Stuff\\cropped_frames\\"
+    return "C:\\Users\\Jai K\\CS Stuff\\2022-2023 CS\\cropped_frames\\"
 
 
 

@@ -52,7 +52,7 @@ def main():
     MAX_HEIGHT = 100
     x_train = []
     #model = load_model(r"C:\Users\Jai K\CS Stuff\Python\ISR Project\100model.h5")
-    model = load_model("C:\\Users\\Jai K\\CS Stuff\\Python\\ISR Project\\code\\self_training_model1.h5")
+    model = load_model("C:\\Users\\Jai K\\CS Stuff\\2022-2023 CS\\Python\\ISR Project\\code\\self_training_model1.h5")
     captureSplit.capture_split()
     captureSplit.crop_user()           
     cropped_frames = os.listdir(starting_path)
