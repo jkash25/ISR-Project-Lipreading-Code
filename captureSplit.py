@@ -158,7 +158,8 @@ def general_crop(path_to_image):
             ymin = min(y_arr)
             cv2.circle(gray, (x, y), 1, (0, 255, 255), 1)
 
-    copy = copy[ymin-10:ymax+10, xmin-5:xmax+5]
+    #copy = copy[ymin-10:ymax+10, xmin-5:xmax+5]
+    copy = copy[ymin-5:ymax+5,xmin:xmax]
     scale_percent = 200
     width2 = 100
     height2 = 100
